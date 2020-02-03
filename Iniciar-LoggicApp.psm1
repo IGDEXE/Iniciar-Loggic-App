@@ -9,12 +9,18 @@ function New-LogicAppInfo {
         [parameter(position=0, Mandatory=$True)]
         $urlLogicApp,
         [parameter(position=1, Mandatory=$True)]
-        $NomePool
+        $nomePool,
+        [parameter(position=2)]
+        $maisInfos,
+        [parameter(position=3)]
+        $servidor = $env:computername
     )
 
     # Configura a informacao
     $infoPool = [PSCustomObject]@{
-        NomePool      = "$NomePool"
+        NomePool      = "$nomePool"
+        Obs           = "$maisInfos"
+        Servidor      = "$servidor"
     }
 
     # Create a line that creates a JSON from this object
